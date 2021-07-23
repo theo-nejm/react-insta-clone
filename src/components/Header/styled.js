@@ -59,6 +59,12 @@ const Container = styled.div`
     border-radius: 50%;
     cursor: pointer;
   }
+
+  @media screen and (max-width: 650px) {
+    input {
+      display: none;
+    }
+  }
 `
 
 export default Container

@@ -17,7 +17,7 @@ const Container = styled.div`
 
   overflow: hidden;
 
-  max-width: 50rem;
+  max-width: 40rem;
 `
 
 export default Container;
