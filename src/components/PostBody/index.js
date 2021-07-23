@@ -3,17 +3,11 @@ import React from 'react';
 import { Container } from './styled';
 
 export default function PostBody(props) {
-  function getRandomInt(min, max) {
-    min = Math.ceil(min);
-    max = Math.floor(max);
-    return Math.floor(Math.random() * (max - min)) + min;
-  }
-
   return (
     <Container>
       {
         props.user 
-        ? <img src="https://source.unsplash.com/random/800x600" alt={`Foto de ${props.user.username}`}></img>
+        ? <img src={`https://source.unsplash.com/random/${600 + props.getRandomInt(0, 200)}x${500 + props.getRandomInt(0, 100)}`} alt={`Foto de ${props.user.username}`}></img>
         : null
       }
 
@@ -38,11 +32,11 @@ export default function PostBody(props) {
       </div>
 
       <div className="body-foot">
-        <p className="liked-by">Curtido por <b>${props.randomUsers ? props.randomUsers[0] : null}</b> e <b>outras {getRandomInt(150, 2000)} pessoas</b></p>
+        <p className="liked-by">Curtido por <b>${props.randomUsers ? props.randomUsers[0] : null}</b> e <b>outras {props.getRandomInt(150, 2000)} pessoas</b></p>
 
         <p className="owner-comment"><b>{props.user ? props.user.username : null}</b> random comment</p>
 
-        <p className="see-all">Ver todos os {getRandomInt(2, 120)} comentários</p>
+        <p className="see-all">Ver todos os {props.getRandomInt(2, 120)} comentários</p>
       
         <p className="user-comment 1"><b>{props.randomUsers ? props.randomUsers[0] : null}</b> random comment</p>
 

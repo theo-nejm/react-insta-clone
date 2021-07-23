@@ -7,6 +7,7 @@ export default function Posts() {
   return (
     <Container>
       <Post />
+      <Post />
     </Container>
   )
 }

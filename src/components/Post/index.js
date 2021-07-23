@@ -14,7 +14,7 @@ export default function Post() {
       const received = await fetch('https://random-data-api.com/api/users/random_user');
       const data = await received.json();
       user.username = data.username;
-      user.avatar = `https://source.unsplash.com/random/40x40`
+      user.avatar = `https://source.unsplash.com/random/4${getRandomInt(0, 9)}x4${getRandomInt(0, 9)}`
       setCurrentUser(user)
     }
     fetchData()
@@ -32,6 +32,12 @@ export default function Post() {
 
   }, [])
   
+  function getRandomInt(min, max) {
+    min = Math.ceil(min);
+    max = Math.floor(max);
+    return Math.floor(Math.random() * (max - min)) + min;
+  }
+
   return (
     <Container>
       <PostHeader
@@ -40,6 +46,7 @@ export default function Post() {
       <PostBody
         user={currentUser ? currentUser : null}
         randomUsers={randomUsersArr}
+        getRandomInt={getRandomInt}
       />
     </Container>
   )
