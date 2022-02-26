@@ -1,4 +1,18 @@
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
+
+const animation = keyframes`
+  0% {
+    transform: scale(1);
+  }
+
+  30% {
+    transform: scale(1.15);
+  }
+
+  100% {
+    transform: scale(1);
+  }
+`;
 
 export const Container = styled.div`
   height: max-content;
@@ -24,9 +38,29 @@ export const Container = styled.div`
     justify-content: space-between;
     padding: .75rem;
     
+    svg {
+      cursor: pointer;
+      transition: .25s ease;
+    }
+
+    svg:hover {
+      fill: gray;
+    }
+
     .left {
       display: flex;
       gap: .75rem;
+
+      button {
+        background: none;
+        cursor: pointer;
+        border: none;
+      }
+
+      svg.unlike-btn {
+        fill: #ed4956;
+        animation: ${animation} .5s ease;
+      }
     }
   }
 
